@@ -4,9 +4,9 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient, APITestCase
 
-from bookstore.product.factories import OrderFactory, UserFactory
+from order.factories import OrderFactory, UserFactory
 from order.models import Order
-from bookstore.product.factories import CategoryFactory, ProductFactory
+from product.factories import CategoryFactory, ProductFactory
 from product.models import Product
 
 
@@ -29,16 +29,16 @@ class TestOrderViewSet(APITestCase):
 
         order_data = json.loads(response.content)
         self.assertEqual(
-            order_data["results"][0]["product"][0]["title"], self.product.title
+            order_data[0]["product"][0]["title"], self.product.title
         )
         self.assertEqual(
-            order_data["results"][0]["product"][0]["price"], self.product.price
+            order_data[0]["product"][0]["price"], self.product.price
         )
         self.assertEqual(
-            order_data["results"][0]["product"][0]["active"], self.product.active
+            order_data[0]["product"][0]["active"], self.product.active
         )
         self.assertEqual(
-            order_data["results"][0]["product"][0]["category"][0]["title"],
+            order_data[0]["product"][0]["category"][0]["title"],
             self.category.title,
         )
 
