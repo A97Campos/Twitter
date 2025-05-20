@@ -21,8 +21,12 @@ class CategoryViewSet(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         category_data = json.loads(response.content)
 
+<<<<<<< Updated upstream
         self.assertEqual(category_data["results"]
                         [0]["title"], self.category.title)
+=======
+        self.assertEqual(category_data["results"][0]["title"], self.category.title)
+>>>>>>> Stashed changes
 
     def test_create_category(self):
         data = json.dumps({"title": "technology"})
