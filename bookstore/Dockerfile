@@ -42,8 +42,7 @@ RUN apt-get update \
 RUN curl -sSL https://install.python-poetry.org | python -
 
 RUN apt-get update \
-    && apt-get -y install libpq-dev gcc \
-    && pip install psycopg2
+    && apt-get -y install libpq-dev gcc 
 
 # copy project requirement files here to ensure they will be cached.
 WORKDIR $PYSETUP_PATH
