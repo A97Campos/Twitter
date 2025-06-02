@@ -15,9 +15,7 @@ services:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - type: bind
-        source: C:\Users\55539\desktop\twitter\bookstore
-        target: /app
+      - . :/usr/src/app/
     ports:
       - 8000:8000
     env_file:
